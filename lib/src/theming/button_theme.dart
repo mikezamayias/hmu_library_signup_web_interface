@@ -1,36 +1,12 @@
 import 'package:flutter/material.dart';
 
-ButtonStyle mainButtonStyle = ButtonStyle(
-  padding: _buttonPadding(),
-  shape: _buttonShape(),
-  elevation: _buttonElevation(),
-  backgroundColor: _buttonBackgroundColor(const Color(0xFF1A4859)),
-);
-
-TextStyle mainButtonTextStyle = const TextStyle(
-  color: Color(0xFFFFFFFF),
-  fontSize: 18,
-  fontWeight: FontWeight.w100,
-);
-
-ButtonStyle secondaryButtonStyle = ButtonStyle(
-  padding: _buttonPadding(),
-  shape: _buttonShape(),
-  elevation: _buttonElevation(),
-  backgroundColor: _buttonBackgroundColor(const Color(0xFFFFFFFF)),
-  side: _buttonSide(),
-);
-
-TextStyle secondaryButtonTextStyle = const TextStyle(
-  color: Color(0xFF1A4859),
-  fontSize: 18,
-  fontWeight: FontWeight.w100,
-);
+const double _buttonTextFontSize = 15;
+const FontWeight _buttonTextFontWeight = FontWeight.w100;
 
 MaterialStateProperty<EdgeInsets> _buttonPadding() =>
     MaterialStateProperty.all<EdgeInsets>(
       const EdgeInsets.symmetric(
-        horizontal: 18,
+        horizontal: 21,
         vertical: 15,
       ),
     );
@@ -57,3 +33,34 @@ MaterialStateProperty<BorderSide> _buttonSide() =>
         width: 2,
       ),
     );
+
+MaterialStateProperty<Color> _buttonOverlayColor(Color color) =>
+    MaterialStateProperty.all<Color>(color.withOpacity(0.15));
+
+ButtonStyle mainButtonStyle = ButtonStyle(
+  padding: _buttonPadding(),
+  shape: _buttonShape(),
+  elevation: _buttonElevation(),
+  backgroundColor: _buttonBackgroundColor(const Color(0xFF1A4859)),
+);
+
+TextStyle mainButtonTextStyle = const TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontSize: _buttonTextFontSize,
+  fontWeight: _buttonTextFontWeight,
+);
+
+ButtonStyle secondaryButtonStyle = ButtonStyle(
+  padding: _buttonPadding(),
+  shape: _buttonShape(),
+  elevation: _buttonElevation(),
+  backgroundColor: _buttonBackgroundColor(const Color(0xFFFFFFFF)),
+  side: _buttonSide(),
+  overlayColor: _buttonOverlayColor(const Color(0xFF1A4859)),
+);
+
+TextStyle secondaryButtonTextStyle = const TextStyle(
+  color: Color(0xFF1A4859),
+  fontSize: _buttonTextFontSize,
+  fontWeight: _buttonTextFontWeight,
+);
