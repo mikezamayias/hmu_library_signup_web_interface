@@ -18,7 +18,7 @@ class DefaultView extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Expanded(
+          Flexible(
             flex: 1,
             child: Container(
               color: const Color(0xFFEEE9DF),
@@ -30,7 +30,7 @@ class DefaultView extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
+          Flexible(
             flex: 2,
             child: Container(
               color: const Color(0XFFFFFFFF),
