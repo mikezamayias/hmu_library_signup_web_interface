@@ -11,11 +11,6 @@ MaterialStateProperty<EdgeInsets> _buttonPadding() =>
       ),
     );
 
-MaterialStateProperty<double> _buttonElevation() =>
-    MaterialStateProperty.all<double>(
-      18,
-    );
-
 MaterialStateProperty<OutlinedBorder> _buttonShape() =>
     MaterialStateProperty.all<OutlinedBorder>(
       RoundedRectangleBorder(
@@ -40,14 +35,14 @@ MaterialStateProperty<Color> _buttonOverlayColor(Color color) =>
 ButtonStyle mainButtonStyle = ButtonStyle(
   padding: _buttonPadding(),
   shape: _buttonShape(),
-  elevation: _buttonElevation(),
+  elevation: MaterialStateProperty.all<double>(18),
   backgroundColor: _buttonBackgroundColor(const Color(0xFF1A4859)),
 );
 
 ButtonStyle disabledMainButtonStyle = ButtonStyle(
   padding: _buttonPadding(),
   shape: _buttonShape(),
-  elevation: _buttonElevation(),
+  elevation: MaterialStateProperty.all<double>(0),
   backgroundColor: _buttonBackgroundColor(const Color(0xFF393939)),
 );
 
@@ -60,7 +55,7 @@ TextStyle mainButtonTextStyle = const TextStyle(
 ButtonStyle secondaryButtonStyle = ButtonStyle(
   padding: _buttonPadding(),
   shape: _buttonShape(),
-  elevation: _buttonElevation(),
+  elevation: MaterialStateProperty.all<double>(18),
   backgroundColor: _buttonBackgroundColor(const Color(0xFFFFFFFF)),
   side: _buttonSide(),
   overlayColor: _buttonOverlayColor(const Color(0xFF1A4859)),
@@ -69,7 +64,7 @@ ButtonStyle secondaryButtonStyle = ButtonStyle(
 ButtonStyle disabledSecondaryButtonStyle = ButtonStyle(
   padding: _buttonPadding(),
   shape: _buttonShape(),
-  elevation: _buttonElevation(),
+  elevation: MaterialStateProperty.all<double>(0),
   backgroundColor: _buttonBackgroundColor(const Color(0xFFFFFFFF)),
   side: _buttonSide(),
   overlayColor: _buttonOverlayColor(const Color(0xFF393939)),
