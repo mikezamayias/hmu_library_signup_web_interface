@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
+import 'package:hmu_library_signup_web_interface/src/widgets/yellow_text_form_field.dart';
 
 import '../default_view/default_view.dart';
 
@@ -10,10 +12,12 @@ class CredentialsView extends StatefulWidget {
 }
 
 class _CredentialsViewState extends State<CredentialsView> {
+  TextEditingController emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return const DefaultView(
-      headerChildren: [
+    return DefaultView(
+      headerChildren: const [
         Center(
           child: Text(
             'Fill in your\ncredentials',
@@ -26,8 +30,18 @@ class _CredentialsViewState extends State<CredentialsView> {
         ),
       ],
       contentChildren: [
-        const Spacer(flex: 9,),
-        const Spacer(flex: 9,),
+        const Spacer(
+          flex: 9,
+        ),
+        YellowTextFormField(
+          hintText: 'Enter your email',
+          labelText: 'Email',
+          errorText: 'Please enter your correct email address',
+          textEditingController: emailController,
+        ),
+        const Spacer(
+          flex: 9,
+        ),
       ],
     );
   }
