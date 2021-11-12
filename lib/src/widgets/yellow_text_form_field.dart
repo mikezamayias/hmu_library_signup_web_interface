@@ -91,7 +91,6 @@ class _YellowTextFormFieldState extends State<YellowTextFormField> {
             if (validateEmail(value!) != 'success') {
               return validateEmail(value);
             }
-            ;
           }
         },
         cursorColor: const Color(0xFFA9915D),
