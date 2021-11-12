@@ -13,24 +13,23 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultView(
       headerChildren: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(102, 102, 102, 0),
-            child: Image.asset('assets/images/hmu_logo.png'),
-          ),
+        const Spacer(flex: 9),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.36,
+          height: MediaQuery.of(context).size.height * 0.36,
+          child: Image.asset('assets/images/hmu_logo.png'),
         ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(90, 75, 90, 90),
-          child: Text(
-            'HMU Library',
-            style: GoogleFonts.gfsNeohellenic(
-              textStyle: const TextStyle(
-                fontSize: 42,
-                fontWeight: FontWeight.bold,
-              ),
+        const Spacer(flex: 3),
+        Text(
+          'HMU Library',
+          style: GoogleFonts.gfsNeohellenic(
+            textStyle: const TextStyle(
+              fontSize: 42,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
+        const Spacer(flex: 9),
       ],
       contentChildren: [
         const Spacer(flex: 9),
