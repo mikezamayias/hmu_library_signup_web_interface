@@ -44,8 +44,9 @@ class _MainViewState extends State<MainView> {
         const Spacer(flex: 9),
         const Text(
           'Sign up',
+          textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 42,
             fontWeight: FontWeight.bold,
           ),
         ),
