@@ -98,7 +98,7 @@ class _YellowTextFormFieldState extends State<YellowTextFormField> {
           hintText: widget.hintText,
           labelText: '${widget.labelText}*',
           floatingLabelStyle: const TextStyle(
-            color: Color(0xFFA9915D),
+            color: Color(0xFF1A4859),
             fontSize: 21,
             fontWeight: FontWeight.w600,
           ),
