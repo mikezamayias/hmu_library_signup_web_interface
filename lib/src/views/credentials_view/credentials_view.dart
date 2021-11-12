@@ -59,6 +59,9 @@ class _CredentialsViewState extends State<CredentialsView> {
           labelText: 'Student ID number',
           textEditingController: studentIDNumberController,
         ),
+        const Spacer(
+          flex: 9,
+        ),
         const NavigationButtonBar(),
         const Spacer(
           flex: 9,

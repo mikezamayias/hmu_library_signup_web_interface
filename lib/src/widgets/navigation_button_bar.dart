@@ -12,20 +12,37 @@ class NavigationButtonBar extends StatefulWidget {
 class _NavigationButtonBarState extends State<NavigationButtonBar> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        const Spacer(flex: 12),
-        MainButton(
-          onPressed: () {}, string: 'Go back',
+      children: [
+        const Text(
+          '* Required fields',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        const Spacer(flex: 1),
-        MainButton(
-          onPressed: () {}, string: 'Continue',
+        const SizedBox(height: 15),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            const Spacer(flex: 12),
+            MainButton(
+              onPressed: () {},
+              string: 'Go back',
+            ),
+            const Spacer(flex: 1),
+            MainButton(
+              onPressed: () {},
+              string: 'Continue',
+            ),
+            const Spacer(flex: 12),
+          ],
         ),
-        const Spacer(flex: 12),
       ],
     );
   }
