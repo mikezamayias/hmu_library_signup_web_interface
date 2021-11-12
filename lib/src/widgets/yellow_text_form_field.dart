@@ -1,20 +1,20 @@
-import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/material.dart';
 
 class YellowTextFormField extends StatefulWidget {
   final String hintText;
   final String labelText;
   final TextEditingController textEditingController;
-  bool isPassword;
-  String? previousPassword;
+  final bool? isPassword;
+  final String? previousPassword;
 
-  YellowTextFormField({
+  const YellowTextFormField({
     Key? key,
     required this.hintText,
     required this.labelText,
     required this.textEditingController,
     this.isPassword = false,
-    confirmPassword,
+    this.previousPassword,
   }) : super(key: key);
 
   @override
