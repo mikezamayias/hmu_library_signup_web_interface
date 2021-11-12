@@ -16,7 +16,7 @@ class SecondaryButton extends StatelessWidget {
       onPressed: onPressed ?? () {},
       style: ButtonStyle(
         padding: MaterialStateProperty.all<EdgeInsets>(
-          const EdgeInsets.symmetric(horizontal: 27, vertical: 9),
+          const EdgeInsets.symmetric(horizontal: 24, vertical: 9),
         ),
         shape: MaterialStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
@@ -38,6 +38,8 @@ class SecondaryButton extends StatelessWidget {
         string,
         style: const TextStyle(
           color: Color(0xFF1A4859),
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
