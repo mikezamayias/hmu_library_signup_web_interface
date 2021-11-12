@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class MainButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color backgroundColor;
   final String string;
 
-  const CustomButton({
+  const MainButton({
     Key? key,
     required this.onPressed,
     required this.backgroundColor,
@@ -27,7 +27,7 @@ class CustomButton extends StatelessWidget {
           18,
         ),
         backgroundColor: MaterialStateProperty.all<Color>(
-          backgroundColor,
+          const Color(0xFF1A4859),
         ),
       ),
       child: Text(string),
