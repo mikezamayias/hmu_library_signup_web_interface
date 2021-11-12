@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hmu_library_signup_web_interface/src/theming/button_theme.dart';
 
 class MainButton extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -14,29 +15,10 @@ class MainButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed ?? () {},
-      style: ButtonStyle(
-        padding: MaterialStateProperty.all<EdgeInsets>(
-          const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
-        ),
-        shape: MaterialStateProperty.all<OutlinedBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(60),
-          ),
-        ),
-        elevation: MaterialStateProperty.all<double>(
-          18,
-        ),
-        backgroundColor: MaterialStateProperty.all<Color>(
-          const Color(0xFF1A4859),
-        ),
-      ),
+      style: mainButtonStyle,
       child: Text(
         string,
-        style: const TextStyle(
-          color: Color(0xFFFFFFFF),
-          fontSize: 18,
-          fontWeight: FontWeight.w100,
-        ),
+        style: mainButtonTextStyle,
       ),
     );
   }
