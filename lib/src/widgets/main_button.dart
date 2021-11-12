@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 
 class MainButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final Color backgroundColor;
+  final VoidCallback? onPressed;
   final String string;
 
   const MainButton({
     Key? key,
-    required this.onPressed,
-    required this.backgroundColor,
+    this.onPressed,
     required this.string,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: onPressed ?? () {},
       style: ButtonStyle(
         padding: MaterialStateProperty.all<EdgeInsets>(
           const EdgeInsets.symmetric(horizontal: 27, vertical: 9),
