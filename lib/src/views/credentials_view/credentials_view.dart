@@ -52,7 +52,7 @@ class _CredentialsViewState extends State<CredentialsView> {
           labelText: 'Confirm Password',
           textEditingController: confirmPasswordController,
           isPassword: true,
-          confirmPassword: passwordController.text,
+          previousPassword: passwordController.text,
         ),
         YellowTextFormField(
           hintText: 'Enter Student ID number',
