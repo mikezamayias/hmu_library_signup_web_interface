@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'src/widgets/main_button.dart';
-import 'src/widgets/secondary_button.dart';
+import 'src/views/main_view/main_view.dart';
 import 'src/theming/text_theme.dart';
-import 'src/views/default_view/default_view.dart';
 
 void main() {
   runApp(const HMULibrarySignUpWebInterface());
@@ -20,35 +18,7 @@ class HMULibrarySignUpWebInterface extends StatelessWidget {
         textTheme: textTheme,
       ),
       debugShowCheckedModeBanner: false,
-      home: DefaultView(
-        headerChildren: [
-          Row(
-            children: const [
-              MainButton(
-                string: 'email',
-              ),
-              SecondaryButton(
-                string: 'Google',
-              ),
-              SecondaryButton(
-                string: 'LinkedIn',
-              ),
-            ],
-          )
-        ],
-        contentChildren: [
-          Row(
-            children: const [
-              SecondaryButton(
-                string: 'Sign In',
-              ),
-              MainButton(
-                string: 'Continue',
-              ),
-            ],
-          )
-        ],
-      ),
+      home: const MainView(),
     );
   }
 }
