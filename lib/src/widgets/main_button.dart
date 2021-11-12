@@ -16,10 +16,12 @@ class MainButton extends StatelessWidget {
       onPressed: onPressed ?? () {},
       style: ButtonStyle(
         padding: MaterialStateProperty.all<EdgeInsets>(
-          const EdgeInsets.symmetric(horizontal: 27, vertical: 9),
+          const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
         ),
         shape: MaterialStateProperty.all<OutlinedBorder>(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(60),
+          ),
         ),
         elevation: MaterialStateProperty.all<double>(
           18,
@@ -28,7 +30,14 @@ class MainButton extends StatelessWidget {
           const Color(0xFF1A4859),
         ),
       ),
-      child: Text(string),
+      child: Text(
+        string,
+        style: const TextStyle(
+          color: Color(0xFFFFFFFF),
+          fontSize: 18,
+          fontWeight: FontWeight.w100,
+        ),
+      ),
     );
   }
 }
