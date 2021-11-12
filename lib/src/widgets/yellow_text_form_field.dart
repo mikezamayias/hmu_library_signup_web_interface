@@ -40,7 +40,7 @@ class _YellowTextFormFieldState extends State<YellowTextFormField> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         onFieldSubmitted: (_) {
           String errorMessage;
-          if (widget.isPassword) {
+          if (widget.isPassword!) {
             if (widget.previousPassword != null) {
               errorMessage = validateConfirmPassword(
                   widget.textEditingController.text, widget.previousPassword!);
@@ -74,13 +74,13 @@ class _YellowTextFormFieldState extends State<YellowTextFormField> {
           }
         },
         validator: (value) {
-          if (widget.isPassword & (widget.previousPassword == null)) {
+          if (widget.isPassword! & (widget.previousPassword == null)) {
             (value) {
               if (validatePassword(value!) != 'success') {
                 return validatePassword(value);
               }
             };
-          } else if (widget.isPassword & (widget.previousPassword != null)) {
+          } else if (widget.isPassword! & (widget.previousPassword != null)) {
             (value) {
               if (validateConfirmPassword(value!, widget.previousPassword!) !=
                   'success') {
