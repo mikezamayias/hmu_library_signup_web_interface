@@ -30,11 +30,16 @@ class SecondaryButton extends StatelessWidget {
         side: MaterialStateProperty.all<BorderSide>(
           const BorderSide(
             color: Color(0xFF1A4859),
-            width: 3,
+            width: 2,
           ),
         ),
       ),
-      child: Text(string),
+      child: Text(
+        string,
+        style: const TextStyle(
+          color: Color(0xFF1A4859),
+        ),
+      ),
     );
   }
 }
