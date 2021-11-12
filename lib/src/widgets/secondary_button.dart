@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theming/button_theme.dart';
 
-class SecondaryButton extends StatelessWidget {
+class SecondaryButton extends StatefulWidget {
   final VoidCallback? onPressed;
   final String string;
 
@@ -13,14 +13,28 @@ class SecondaryButton extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<SecondaryButton> createState() => _SecondaryButtonState();
+}
+
+class _SecondaryButtonState extends State<SecondaryButton> {
+  @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed ?? () {},
-      style: secondaryButtonStyle,
-      child: Text(
-        string,
-        style: secondaryButtonTextStyle,
-      ),
-    );
+    return widget.onPressed == null
+        ? ElevatedButton(
+            onPressed: widget.onPressed,
+            style: disabledSecondaryButtonStyle,
+            child: Text(
+              widget.string,
+              style: secondaryButtonTextStyle,
+            ),
+          )
+        : ElevatedButton(
+            onPressed: widget.onPressed,
+            style: secondaryButtonStyle,
+            child: Text(
+              widget.string,
+              style: secondaryButtonTextStyle,
+            ),
+          );
   }
 }

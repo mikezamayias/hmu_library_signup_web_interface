@@ -44,6 +44,13 @@ ButtonStyle mainButtonStyle = ButtonStyle(
   backgroundColor: _buttonBackgroundColor(const Color(0xFF1A4859)),
 );
 
+ButtonStyle disabledMainButtonStyle = ButtonStyle(
+  padding: _buttonPadding(),
+  shape: _buttonShape(),
+  elevation: _buttonElevation(),
+  backgroundColor: _buttonBackgroundColor(const Color(0xFF393939)),
+);
+
 TextStyle mainButtonTextStyle = const TextStyle(
   color: Color(0xFFFFFFFF),
   fontSize: _buttonTextFontSize,
@@ -59,8 +66,23 @@ ButtonStyle secondaryButtonStyle = ButtonStyle(
   overlayColor: _buttonOverlayColor(const Color(0xFF1A4859)),
 );
 
+ButtonStyle disabledSecondaryButtonStyle = ButtonStyle(
+  padding: _buttonPadding(),
+  shape: _buttonShape(),
+  elevation: _buttonElevation(),
+  backgroundColor: _buttonBackgroundColor(const Color(0xFFFFFFFF)),
+  side: _buttonSide(),
+  overlayColor: _buttonOverlayColor(const Color(0xFF393939)),
+);
+
 TextStyle secondaryButtonTextStyle = const TextStyle(
   color: Color(0xFF1A4859),
+  fontSize: _buttonTextFontSize,
+  fontWeight: _buttonTextFontWeight,
+);
+
+TextStyle disabledSecondaryButtonTextStyle = const TextStyle(
+  color: Color(0xFF393939),
   fontSize: _buttonTextFontSize,
   fontWeight: _buttonTextFontWeight,
 );

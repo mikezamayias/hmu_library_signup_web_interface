@@ -1,13 +1,22 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hmu_library_signup_web_interface/src/widgets/secondary_button.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
+import '../../widgets/secondary_button.dart';
 import '../../widgets/main_button.dart';
 import '../default_view/default_view.dart';
 
-class MainView extends StatelessWidget {
+class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
+
+  @override
+  State<MainView> createState() => _MainViewState();
+}
+
+class _MainViewState extends State<MainView> {
+  bool _agreed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -56,50 +65,92 @@ class MainView extends StatelessWidget {
           children: <Widget>[
             const Spacer(flex: 9),
             MainButton(
-              onPressed: () => debugPrint('give me your email'),
+              onPressed:
+                  _agreed ? () => debugPrint('give me your email') : null,
               string: 'email',
             ),
             const Spacer(flex: 1),
             MainButton(
-              onPressed: () => launch(
-                  'https://accounts.google.com/signin/v2/identifier?hl=el&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin'),
+              onPressed: _agreed
+                  ? () => launch(
+                      'https://accounts.google.com/signin/v2/identifier?hl=el&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin')
+                  : null,
               string: 'Google',
             ),
             const Spacer(flex: 1),
             MainButton(
-              onPressed: () => launch('https://www.linkedin.com/login'),
+              onPressed: _agreed
+                  ? () => launch('https://www.linkedin.com/login')
+                  : null,
               string: 'LinkedIn',
             ),
             const Spacer(flex: 9),
           ],
         ),
         const Spacer(flex: 1),
-        RichText(
-          text: const TextSpan(
-            children: [
-              TextSpan(
-                text: 'I agree to ',
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Spacer(flex: 24),
+            GestureDetector(
+              onTap: () => setState(() => _agreed = !_agreed),
+              child: _agreed
+                  ? const Icon(
+                      Icons.check_box_rounded,
+                      color: Color(0xFF1A4859),
+                    )
+                  : const Icon(
+                      Icons.check_box_outline_blank_rounded,
+                      color: Color(0xFF1A4859),
+                    ),
+            ),
+            const Spacer(flex: 1),
+            RichText(
+              text: TextSpan(
+                children: [
+                  const TextSpan(
+                    text: 'By signing up, you agree to our ',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'Terms of Service',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => showToast(
+                            "You agree to Terms of Service",
+                            context: context,
+                          ),
+                  ),
+                  const TextSpan(
+                    text: ' and ',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'Privacy Policy',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => showToast(
+                            "You agree to Privacy Policy",
+                            context: context,
+                          ),
+                  ),
+                ],
               ),
-              TextSpan(
-                text: 'Terms of Service',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextSpan(
-                text: ' and ',
-              ),
-              TextSpan(
-                text: 'Privacy Policy',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextSpan(
-                text: '.',
-              ),
-            ],
-          ),
+            ),
+            const Spacer(flex: 24),
+          ],
         ),
         const Spacer(flex: 9),
         Row(
