@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hmu_library_signup_web_interface/src/theming/button_theme.dart';
+
+import '../theming/button_theme.dart';
 
 class MainButton extends StatelessWidget {
   final VoidCallback? onPressed;

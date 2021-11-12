@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hmu_library_signup_web_interface/src/widgets/main_button.dart';
-import 'package:hmu_library_signup_web_interface/src/widgets/secondary_button.dart';
 
+import 'src/widgets/main_button.dart';
+import 'src/widgets/secondary_button.dart';
 import 'src/theming/text_theme.dart';
 import 'src/views/default_view/default_view.dart';
 
