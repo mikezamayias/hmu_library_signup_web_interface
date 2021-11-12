@@ -33,8 +33,8 @@ class HMULibrarySignUpWebInterface extends StatelessWidget {
           contentChildren: [
             Row(
               children: const [
-                MainButton(
-                  string: 'Go Back',
+                SecondaryButton(
+                  string: 'Sign In',
                 ),
                 MainButton(
                   string: 'Continue',
