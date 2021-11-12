@@ -19,30 +19,35 @@ class HMULibrarySignUpWebInterface extends StatelessWidget {
       theme: ThemeData(
         textTheme: textTheme,
       ),
-      home: Scaffold(
-        body: DefaultView(
-          headerChildren: [
-            Row(
-              children: const [
-                MainButton(string: 'email',),
-                SecondaryButton(string: 'Google',),
-                SecondaryButton(string: 'Linkeln',),
-              ],
-            )
-          ],
-          contentChildren: [
-            Row(
-              children: const [
-                SecondaryButton(
-                  string: 'Sign In',
-                ),
-                MainButton(
-                  string: 'Continue',
-                ),
-              ],
-            )
-          ],
-        ),
+      debugShowCheckedModeBanner: false,
+      home: DefaultView(
+        headerChildren: [
+          Row(
+            children: const [
+              MainButton(
+                string: 'email',
+              ),
+              SecondaryButton(
+                string: 'Google',
+              ),
+              SecondaryButton(
+                string: 'LinkedIn',
+              ),
+            ],
+          )
+        ],
+        contentChildren: [
+          Row(
+            children: const [
+              SecondaryButton(
+                string: 'Sign In',
+              ),
+              MainButton(
+                string: 'Continue',
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
