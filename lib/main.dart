@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
-import 'src/views/main_view/main_view.dart';
 import 'src/theming/text_theme.dart';
+import 'src/views/main_view/main_view.dart';
 import 'src/views/credentials_view/credentials_view.dart';
+import 'src/views/personal_details_view/personal_details_view.dart';
 
 void main() {
   runApp(const HMULibrarySignUpWebInterface());
@@ -32,7 +33,7 @@ class _HMULibrarySignUpWebInterfaceState extends State<HMULibrarySignUpWebInterf
           textTheme: textTheme,
         ),
         debugShowCheckedModeBanner: false,
-        home: const CredentialsView(),
+        home: const PersonalDetailsView(),
       ),
     );
   }
