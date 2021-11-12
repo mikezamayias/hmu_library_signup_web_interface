@@ -35,7 +35,7 @@ class _YellowTextFormFieldState extends State<YellowTextFormField> {
       width: 300,
       child: TextFormField(
         textAlignVertical: TextAlignVertical.center,
-        // obscureText: widget.labelText == 'Password' ? true : false,
+        obscureText: widget.isPassword ?? false,
         controller: widget.textEditingController,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         onFieldSubmitted: (_) {
