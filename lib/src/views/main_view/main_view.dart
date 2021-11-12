@@ -35,7 +35,6 @@ class MainView extends StatelessWidget {
             MainButton(
               onPressed: () => debugPrint('Sign in with Google'),
               string: 'Google',
-              icon: Image.asset('assets/images/google_logo.png'),
             ),
           ],
         )
