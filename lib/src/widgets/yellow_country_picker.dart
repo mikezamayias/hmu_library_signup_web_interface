@@ -1,26 +1,27 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 
-import 'package:intl/intl.dart';
-
-class YellowDatePicker extends StatefulWidget {
+class YellowCountryPicker extends StatefulWidget {
   final String labelText;
+
   final TextEditingController textEditingController;
 
-  const YellowDatePicker({
+  const YellowCountryPicker({
     Key? key,
     required this.labelText,
     required this.textEditingController,
   }) : super(key: key);
 
   @override
-  _YellowDatePickerState createState() => _YellowDatePickerState();
+  _YellowCountryPickerState createState() => _YellowCountryPickerState();
 }
 
-class _YellowDatePickerState extends State<YellowDatePicker> {
-  DateTime _birthDate = DateTime.now();
+class _YellowCountryPickerState extends State<YellowCountryPicker> {
+  Country _selectedCountry = Country.tryParse('Greece')!;
 
   @override
   Widget build(BuildContext context) {
+    widget.textEditingController.text = _selectedCountry.name;
     return SizedBox(
       height: 75,
       width: 300,
@@ -28,7 +29,7 @@ class _YellowDatePickerState extends State<YellowDatePicker> {
         readOnly: true,
         onTap: () {
           setState(() {
-            _selectDate(context);
+            _selectCountry(context);
           });
         },
         textAlignVertical: TextAlignVertical.center,
@@ -38,7 +39,7 @@ class _YellowDatePickerState extends State<YellowDatePicker> {
         validator: (value) {},
         cursorColor: const Color(0xFF1A4859),
         decoration: InputDecoration(
-          hintText: DateFormat('dd/MM/yyyy').format(_birthDate),
+          hintText: _selectedCountry.name,
           hintStyle: const TextStyle(
             color: Color(0xFF1A4859),
           ),
@@ -105,16 +106,54 @@ class _YellowDatePickerState extends State<YellowDatePicker> {
     );
   }
 
-  _selectDate(BuildContext context) async {
-    final datePick = await showDatePicker(
+  _selectCountry(BuildContext context) async {
+    showCountryPicker(
+        countryListTheme: CountryListThemeData(
+          textStyle: const TextStyle(fontSize: 21, color: Color(0xFF1A4859)),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(60.0),
+            topRight: Radius.circular(60.0),
+          ),
+          inputDecoration: InputDecoration(
+            floatingLabelStyle: const TextStyle(
+              color: Color(0xFF1A4859),
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+            labelText: 'Search',
+            focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFF1A4859),
+                width: 3.0,
+                style: BorderStyle.solid,
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(60)),
+            ),
+            hintText: 'Start typing to search',
+            hintStyle: const TextStyle(
+              color: Color(0xFF1A4859),
+            ),
+            labelStyle: const TextStyle(
+              color: Color(0xFF1A4859),
+            ),
+            prefixIcon: const Icon(
+              Icons.search,
+              color: Color(0xFF1A4859),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(60.0)),
+              borderSide: BorderSide(
+                color: const Color(0xFF1A4859).withOpacity(0.2),
+              ),
+            ),
+          ),
+        ),
         context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(1900),
-        lastDate: DateTime(2100));
-    if (datePick != null && datePick != _birthDate) {
-      setState(() {
-        _birthDate = datePick;
-      });
-    }
+        onSelect: (Country country) {
+          setState(() {
+            _selectedCountry = country;
+            widget.textEditingController.text = _selectedCountry.name;
+          });
+        });
   }
 }

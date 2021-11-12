@@ -6,14 +6,15 @@ version: 1.0.0+1
 environment:
   sdk: '>=2.12.0 <3.0.0'
 dependencies:
+  country_picker: ^2.0.8
   cupertino_icons: ^1.0.4
+  email_validator: ^2.0.1
   flutter:
     sdk: flutter
-  google_fonts: ^2.1.0
-  url_launcher: ^6.0.12
   flutter_signin_button: ^2.0.0
   flutter_styled_toast: ^2.0.0
-  email_validator: ^2.0.1
+  google_fonts: ^2.1.0
+  url_launcher: ^6.0.12
 dev_dependencies:
   flutter_lints: ^1.0.4
   flutter_test:
@@ -21,4 +22,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-  - assets/images/
+    - assets/images/

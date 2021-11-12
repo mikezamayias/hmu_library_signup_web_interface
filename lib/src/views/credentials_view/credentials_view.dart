@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../main_view/main_view.dart';
+import '../personal_details_view/personal_details_view.dart';
 import '../../widgets/navigation_button_bar.dart';
 import '../../widgets/yellow_text_form_field.dart';
 import '../default_view/default_view.dart';
@@ -62,7 +64,21 @@ class _CredentialsViewState extends State<CredentialsView> {
         const Spacer(
           flex: 9,
         ),
-        const NavigationButtonBar(),
+        NavigationButtonBar(
+          isEnd: false,
+          onPressedButton1: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const MainView(),
+            ),
+          ),
+          onPressedButton2: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PersonalDetailsView(),
+            ),
+          ),
+        ),
         const Spacer(
           flex: 9,
         ),

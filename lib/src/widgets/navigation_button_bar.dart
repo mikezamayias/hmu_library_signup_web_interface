@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 import 'main_button.dart';
 
 class NavigationButtonBar extends StatefulWidget {
-  const NavigationButtonBar({Key? key}) : super(key: key);
+  final bool isEnd;
+  final VoidCallback onPressedButton1;
+  final VoidCallback onPressedButton2;
+  const NavigationButtonBar({
+    Key? key,
+    this.isEnd = false,
+    required this.onPressedButton1,
+    required this.onPressedButton2,
+  }) : super(key: key);
 
   @override
   _NavigationButtonBarState createState() => _NavigationButtonBarState();
@@ -32,14 +40,19 @@ class _NavigationButtonBarState extends State<NavigationButtonBar> {
           children: <Widget>[
             const Spacer(flex: 12),
             MainButton(
-              onPressed: () {},
+              onPressed: widget.onPressedButton1,
               string: 'Go back',
             ),
             const Spacer(flex: 1),
-            MainButton(
-              onPressed: () {},
-              string: 'Continue',
-            ),
+            widget.isEnd
+                ? MainButton(
+                    onPressed: widget.onPressedButton2,
+                    string: 'Sign up',
+                  )
+                : MainButton(
+                    onPressed: widget.onPressedButton2,
+                    string: 'Continue',
+                  ),
             const Spacer(flex: 12),
           ],
         ),

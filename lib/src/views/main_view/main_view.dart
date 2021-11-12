@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
+import '../credentials_view/credentials_view.dart';
 import '../../widgets/secondary_button.dart';
 import '../../widgets/main_button.dart';
 import '../default_view/default_view.dart';
@@ -66,8 +67,14 @@ class _MainViewState extends State<MainView> {
           children: <Widget>[
             const Spacer(flex: 9),
             MainButton(
-              onPressed:
-                  _agreed ? () => debugPrint('give me your email') : null,
+              onPressed: _agreed
+                  ? () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CredentialsView(),
+                        ),
+                      )
+                  : null,
               string: 'email',
             ),
             const Spacer(flex: 1),

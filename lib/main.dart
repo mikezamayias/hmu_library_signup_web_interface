@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:hmu_library_signup_web_interface/src/views/address_view/address_view.dart';
 
 import 'src/theming/text_theme.dart';
 import 'src/views/main_view/main_view.dart';
@@ -18,6 +19,7 @@ class HMULibrarySignUpWebInterface extends StatefulWidget {
 }
 
 class _HMULibrarySignUpWebInterfaceState extends State<HMULibrarySignUpWebInterface> {
+  final PageController _pageController = PageController();
   @override
   Widget build(BuildContext context) {
     return StyledToast(
@@ -33,7 +35,16 @@ class _HMULibrarySignUpWebInterfaceState extends State<HMULibrarySignUpWebInterf
           textTheme: textTheme,
         ),
         debugShowCheckedModeBanner: false,
-        home: const PersonalDetailsView(),
+        home: PageView(
+          controller: _pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: const [
+            MainView(),
+            CredentialsView(),
+            PersonalDetailsView(),
+            AddressView(),
+          ],
+        ),
       ),
     );
   }
