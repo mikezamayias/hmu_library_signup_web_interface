@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hmu_library_signup_web_interface/src/view/default_view/navigation_button.dart';
-import 'package:hmu_library_signup_web_interface/src/view/default_view/yellow_button.dart';
+import 'package:hmu_library_signup_web_interface/src/widgets/main_button.dart';
+import 'package:hmu_library_signup_web_interface/src/widgets/secondary_button.dart';
 
 import 'src/misc/text_theme.dart';
 import 'src/view/default_view/default_view.dart';
@@ -24,25 +24,19 @@ class HMULibrarySignUpWebInterface extends StatelessWidget {
           headerChildren: [
             Row(
               children: const [
-                YellowButton(
-                  string: 'email',
-                ),
-                YellowButton(
-                  string: 'Google',
-                ),
-                YellowButton(
-                  string: 'Linkedln',
-                ),
+                MainButton(string: 'email',),
+                SecondaryButton(string: 'Google',),
+                SecondaryButton(string: 'Linkeln',),
               ],
             )
           ],
           contentChildren: [
             Row(
               children: const [
-                NavigationButton(
+                MainButton(
                   string: 'Go Back',
                 ),
-                NavigationButton(
+                MainButton(
                   string: 'Continue',
                 ),
               ],
