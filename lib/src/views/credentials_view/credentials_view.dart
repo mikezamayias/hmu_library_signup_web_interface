@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:hmu_library_signup_web_interface/src/widgets/yellow_text_form_field.dart';
 
+import '../../widgets/navigation_button_bar.dart';
+import '../../widgets/yellow_text_form_field.dart';
 import '../default_view/default_view.dart';
 
 class CredentialsView extends StatefulWidget {
@@ -13,6 +13,9 @@ class CredentialsView extends StatefulWidget {
 
 class _CredentialsViewState extends State<CredentialsView> {
   TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController studentIDNumberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +39,27 @@ class _CredentialsViewState extends State<CredentialsView> {
         YellowTextFormField(
           hintText: 'Enter your email',
           labelText: 'Email',
-          errorText: 'Please enter your correct email address',
           textEditingController: emailController,
         ),
+        YellowTextFormField(
+          hintText: 'Enter your password',
+          labelText: 'Password',
+          textEditingController: passwordController,
+          isPassword: true,
+        ),
+        YellowTextFormField(
+          hintText: 'Confirm your password',
+          labelText: 'Confirm Password',
+          textEditingController: confirmPasswordController,
+          isPassword: true,
+          confirmPassword: passwordController.text,
+        ),
+        YellowTextFormField(
+          hintText: 'Enter Student ID number',
+          labelText: 'Student ID number',
+          textEditingController: studentIDNumberController,
+        ),
+        const NavigationButtonBar(),
         const Spacer(
           flex: 9,
         ),
